@@ -127,10 +127,7 @@ header strong {
   border-radius: 7px;
   font-size: 20px;
 }
-.version {
-  color: var(--muted);
-  font-size: 12px;
-}
+
 nav {
   display: flex;
   gap: 8px;

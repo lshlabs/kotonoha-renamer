@@ -391,7 +391,6 @@ function render() {
     renderedRoot = s.root;
     renderedRevision = -1;
   }
-  $("version").textContent = s.version;
   $("current-model").textContent = `SuperGemma · ${modelLabel(s.model)}`;
   $("phase").textContent = s.job.label;
   $("dot").className =
