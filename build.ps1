@@ -18,6 +18,7 @@ try {
         throw 'Close the portable GUI before rebuilding it.'
     }
     if (Test-Path -LiteralPath $taskDataPath) {
+        New-Item -ItemType Directory -Path (Split-Path -Parent $taskBackupPath) -Force | Out-Null
         Move-Item -LiteralPath $taskDataPath -Destination $taskBackupPath
     }
     & $Python -m PyInstaller --noconfirm --clean kotonoha.spec

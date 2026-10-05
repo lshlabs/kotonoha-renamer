@@ -16,6 +16,7 @@ class ReceivedTitles:
         self.decoder = json.JSONDecoder()
         self.position, self.length = None, 0
         self.found, self.seen, self.duplicates = set(), set(), set()
+        self.values = {}
 
     def update(self, text):
         if len(text) < self.length:
@@ -23,6 +24,7 @@ class ReceivedTitles:
             self.found.clear()
             self.seen.clear()
             self.duplicates.clear()
+            self.values.clear()
         self.length = len(text)
         if self.position is None:
             match = re.search(r'"translations"\s*:\s*\[', text)
@@ -46,6 +48,9 @@ class ReceivedTitles:
                 self.seen.add(identifier)
                 if self.valid(item.get("text")):
                     self.found.add(identifier)
+                    self.values[identifier] = item["text"].strip()
+        for identifier in self.duplicates:
+            self.values.pop(identifier, None)
         return self.found - self.duplicates
 
 

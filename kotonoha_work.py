@@ -27,7 +27,7 @@ class WorkSession:
         if prepare:
             self.prepare()
 
-    def input_key(self):
+    def input_key(self, prompt=None):
         cache = engine.load_proper_name_cache()
         if cache is None:
             return None
@@ -39,7 +39,7 @@ class WorkSession:
                 "model": self.model,
                 "glossary": engine.GLOSSARY_HASH,
                 "preferences": engine.PREFERENCES_HASH,
-                "prompt": engine.PROMPT_VERSION,
+                "prompt": prompt or engine.PROMPT_VERSION,
                 "options": engine.TRANSLATION_OPTIONS,
                 "confirmed": {
                     k: v for k, v in confirmed.items() if any(k in title for title in self.sources)
@@ -52,11 +52,12 @@ class WorkSession:
             self.approved_path, {"version": 2, "works": {}, "namespaces": {}}
         )
         input_key = self.input_key()
+        compatible_keys = {input_key, self.input_key("kotonoha-title-translation-1")}
         saved = next(
             (
                 copy.deepcopy(value)
                 for value in reversed(list(self.approved["works"].values()))
-                if input_key is not None and value.get("input_key") == input_key
+                if input_key is not None and value.get("input_key") in compatible_keys
             ),
             None,
         )
@@ -109,7 +110,7 @@ class WorkSession:
             self.records = saved.get("records", {})
             self.strength = saved.get("strength", 1)
             self.report("이 폴더에서 채택한 결과를 재사용합니다.")
-        pending = [source for source in self.sources if source not in self.translations]
+        pending = self.incomplete()
         if pending:
             self.generate_initial(pending)
 
@@ -144,83 +145,100 @@ class WorkSession:
             }
         )
 
+    def translation_batches(self, selected):
+        batch, size = [], 0
+        for source in selected:
+            if batch and (len(batch) >= 5 or size + len(source) > 400):
+                yield batch
+                batch, size = [], 0
+            batch.append(source)
+            size += len(source)
+        if batch:
+            yield batch
+
+    def translation_context(self, ids, requested, result):
+        # Reserve room for output. Requested titles and the root have priority.
+        context, size = [], 0
+        order = list(sorted(requested)) + [i for i in ids if i not in requested]
+        for i in order:
+            source = ids[i]
+            item = {"id": i, "source": source}
+            value = result.get(source, self.translations.get(source))
+            if i not in requested and value:
+                item["translation"] = value
+            cost = len(json.dumps(item, ensure_ascii=False))
+            if i not in requested and size + cost > 3000:
+                continue
+            context.append(item)
+            size += cost
+        return context
+
     def translate_with_progress(self, selected, temperature, correction, reason, progress):
         result, records = {}, {}
         pending_corrections = (
             correction if isinstance(correction, list) else [correction] if correction else []
         )
-        pending = list(selected)
         ids = {i: source for i, source in enumerate(self.sources, 1)}
+        pending = list(selected)
         for attempt in range(2):
-            if not pending:
-                break
-            actual_temperature = temperature if not attempt else max(temperature, 0.2)
-            context = [
-                {
-                    "id": i,
-                    "source": source,
-                    **(
-                        {"translation": self.translations[source]}
-                        if source in self.translations and source not in pending
-                        else {}
-                    ),
-                }
-                for i, source in ids.items()
-            ]
-            requested = {i for i, source in ids.items() if source in pending}
-            prompt = (
-                "작품 전체 문맥과 승인된 표기를 참고하여 번역 대상 ID만 translations로 출력하세요.\n"
-                + engine.make_glossary_prompt(self.sources)
-                + engine.make_proper_name_prompt(self.names)
-                + "\n작품 전체 제목: "
-                + json.dumps(context, ensure_ascii=False)
-                + "\n번역 대상 ID: "
-                + json.dumps(sorted(requested))
-                + "\n이번 작품 교정 지시: "
-                + json.dumps(self.corrections + pending_corrections, ensure_ascii=False)
-            )
-            if attempt:
-                prompt += "\n누락·출력 형식 오류·일본어 잔존 항목만 다시 번역하세요."
-            progress.request(
-                requested,
-                len(selected) - len(pending),
-                lambda value: (
-                    engine.valid_title_output(value) and not engine.has_untranslated_japanese(value)
-                ),
-                attempt + 1,
-                round(actual_temperature * 10) + 1,
-            )
-            try:
-                response = engine.ollama_chat_with_retry(
-                    model=self.model,
-                    think=False,
-                    messages=[
-                        {"role": "system", "content": engine.BASE_SYSTEM_PROMPT},
-                        {"role": "user", "content": prompt},
-                    ],
-                    format=engine.BATCH_OUTPUT_SCHEMA,
-                    options={**engine.TRANSLATION_OPTIONS, "temperature": actual_temperature},
-                    on_text=progress.text,
-                )
-                values = engine.parse_batch_results(response.message.content, requested)
-            except WorkCancelled:
-                raise
-            except Exception as exc:
-                self.report(f"번역 응답 오류: {exc}")
-                values = {}
             remaining = []
-            for i in sorted(requested):
-                source, value = ids[i], values.get(i)
-                if value is not None:
+            for batch in self.translation_batches(pending):
+                requested = {i for i, source in ids.items() if source in batch}
+                context = self.translation_context(ids, requested, result)
+                prompt = (
+                    "작품 문맥과 승인된 표기를 참고하여 번역 대상 ID만 translations로 출력하세요.\n"
+                    + engine.make_glossary_prompt([item["source"] for item in context])
+                    + engine.make_proper_name_prompt(self.names)
+                    + "\n제목 문맥: "
+                    + json.dumps(context, ensure_ascii=False)
+                    + "\n번역 대상 ID: "
+                    + json.dumps(sorted(requested))
+                    + "\n이번 작품 교정 지시: "
+                    + json.dumps(self.corrections + pending_corrections, ensure_ascii=False)
+                )
+                if attempt:
+                    prompt += "\n누락·출력 형식 오류·일본어 잔존 항목만 다시 번역하세요."
+                progress.request(
+                    requested,
+                    len(result),
+                    lambda value: (
+                        engine.valid_title_output(value)
+                        and not engine.has_untranslated_japanese(value)
+                    ),
+                    attempt + 1,
+                    round(temperature * 10) + 1,
+                )
+                try:
+                    response = engine.ollama_chat_with_retry(
+                        model=self.model,
+                        think=False,
+                        messages=[
+                            {"role": "system", "content": engine.BASE_SYSTEM_PROMPT},
+                            {"role": "user", "content": prompt},
+                        ],
+                        format=engine.BATCH_OUTPUT_SCHEMA,
+                        options={**engine.TRANSLATION_OPTIONS, "temperature": temperature},
+                        on_text=progress.text,
+                    )
+                    values = engine.parse_batch_results(response.message.content, requested)
+                except WorkCancelled:
+                    raise
+                except Exception as exc:
+                    self.report(f"번역 응답 오류: {exc}")
+                    values = progress.received.values.copy()
+                for i in sorted(requested):
+                    source, value = ids[i], values.get(i)
+                    if not engine.valid_title_output(value) or engine.has_untranslated_japanese(
+                        value
+                    ):
+                        remaining.append(source)
+                        continue
                     result[source] = value
                     records[source] = {
                         "model": self.model,
-                        "temperature": actual_temperature,
+                        "temperature": temperature,
                         "keep_alive": "1m",
-                        "options": {
-                            **engine.TRANSLATION_OPTIONS,
-                            "temperature": actual_temperature,
-                        },
+                        "options": {**engine.TRANSLATION_OPTIONS, "temperature": temperature},
                         "reason": "automatic_validation_retry" if attempt else reason,
                         "correction": correction,
                         "prompt": engine.PROMPT_VERSION,
@@ -231,15 +249,16 @@ class WorkSession:
                         "corrections": copy.deepcopy(self.corrections),
                         "translation": value,
                     }
-                if value is None or engine.has_untranslated_japanese(value):
-                    remaining.append(source)
+                progress.finish(len(result), "제목 번역" if not attempt else "미완료 제목 재시도")
             pending = remaining
-        for source in pending:
-            self.report(f"번역 미완료. 원문 또는 직전 결과를 유지합니다: {source}")
+            if not pending:
+                break
         progress.finish(
-            len(selected) - len(pending),
-            "번역 완료" if not pending else f"처리 종료 · 미완료 {len(pending)}개",
+            len(result),
+            "번역 완료" if not pending else "일부 번역 미완료" if result else "번역 실패",
         )
+        if pending:
+            self.report(f"번역 미완료 {len(pending)}개. 원문 또는 직전 결과를 유지합니다.")
         return result, records
 
     def plan(self):

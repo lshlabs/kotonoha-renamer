@@ -8,7 +8,7 @@ from functools import wraps
 from pathlib import Path
 from types import SimpleNamespace
 
-from kotonoha_progress import LiveProgress
+from kotonoha_progress import LiveProgress, ReceivedTitles
 from kotonoha_storage import DATA_DIR
 from kotonoha_storage import atomic_json as atomic_write_json
 
@@ -40,7 +40,7 @@ FORMAT_FOLDER_NAMES = {
 CHAT_TRANSPORT = ContextVar("kotonoha_chat_transport", default=None)
 
 MAX_RETRIES = 3
-PROMPT_VERSION = "kotonoha-title-translation-1"
+PROMPT_VERSION = "kotonoha-title-translation-2"
 TRANSLATION_OPTIONS = {"temperature": 0, "num_ctx": 4096, "num_predict": 4096}
 
 # 프로그램이 생성하는 메타데이터 파일은 번역/rename 대상에서 제외한다.
@@ -392,11 +392,11 @@ def ollama_chat_with_retry(**kwargs):
     _MODEL_TOUCHED.add(kwargs["model"])
 
     for attempt in range(1, MAX_RETRIES + 1):
+        content = ""
         try:
             if on_text is None:
                 return chat(**kwargs)
             on_text("")
-            content = ""
             for chunk in chat(**kwargs, stream=True):
                 content += chunk.message.content or ""
                 on_text(content)
@@ -404,6 +404,9 @@ def ollama_chat_with_retry(**kwargs):
         except Exception as exc:
             if getattr(exc, "cancelled", False):
                 raise
+            if content and kwargs.get("format") == BATCH_OUTPUT_SCHEMA:
+                # The work layer recovers completed titles and retries missing IDs.
+                return SimpleNamespace(message=SimpleNamespace(content=content))
             last_error = exc
 
             if attempt >= MAX_RETRIES:
@@ -452,7 +455,15 @@ BATCH_OUTPUT_SCHEMA = {
 
 def parse_batch_results(content, requested_ids):
     """ID별 형식만 검사한다. 잘못된 항목이 다른 정상 결과를 지우지 않는다."""
-    data = json.loads(content)
+    try:
+        data = json.loads(content)
+    except json.JSONDecodeError:
+        # Keep complete array items when generation ends inside a later string.
+        received = ReceivedTitles(requested_ids, valid_title_output)
+        received.update(content)
+        if not received.values:
+            raise
+        return received.values
     if not isinstance(data, dict) or not isinstance(data.get("translations"), list):
         raise ValueError("translations 배열이 없습니다.")
     results = {}

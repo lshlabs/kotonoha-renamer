@@ -172,6 +172,8 @@ class GuiService:
                     self.client = None
                 self.refresh_records()
                 with self.guard:
+                    if terminal_status == "completed":
+                        terminal_status = self.job.pop("outcome", terminal_status)
                     self.job["status"] = terminal_status
 
         self.thread = threading.Thread(target=worker, name="kotonoha-work", daemon=False)
@@ -203,6 +205,7 @@ class GuiService:
             raise ValueError("모델·설정에서 기본 모델을 준비하세요.")
         self.client = self.client_factory()
         token = engine.CHAT_TRANSPORT.set(self._chat)
+        final_label = "번역 실패"
         try:
             engine.MODEL = work.model
             self.unload_state = ""
@@ -210,11 +213,8 @@ class GuiService:
                 self.progress(0, len(work.sources), "고유명사·번역 준비")
                 work.prepare()
                 work.save_accepted()
-                self.progress(
-                    len(work.sources) - len(work.incomplete()),
-                    len(work.sources),
-                    "번역안 준비 완료",
-                )
+                total = len(work.sources)
+                done = total - len(work.incomplete())
             else:
                 translated, records = work.translate(
                     selected,
@@ -222,22 +222,38 @@ class GuiService:
                     correction=corrections,
                     reason="user_correction" if corrections else "user_retry",
                 )
-                self.candidate = {
-                    "translations": translated,
-                    "records": records,
-                    "corrections": corrections or [],
-                    "revision": self.revision,
-                }
+                total, done = len(selected), len(translated)
+                self.candidate = (
+                    {
+                        "translations": translated,
+                        "records": records,
+                        "corrections": corrections or [],
+                        "revision": self.revision,
+                    }
+                    if translated
+                    else None
+                )
             self.check_cancel()
             self._invalidate()
             if self.candidate:
                 self.candidate["revision"] = self.revision
             self.output_name = self._suggest_output()
-            self.message = (
-                "새 후보를 확인하세요."
-                if self.candidate
-                else "번역안을 확인한 뒤 이름 변경을 적용하세요."
+            missing = total - done
+            final_label = (
+                "번역 완료" if not missing else "일부 번역 미완료" if done else "번역 실패"
             )
+            if missing:
+                self.job["outcome"] = "partial" if done else "failed"
+                self.message = f"번역 {done}/{total}개 완료 · 미완료 {missing}개. 미완료 제목을 선택해 다시 번역하세요."
+                if not done:
+                    self.job["error"] = self.message
+            else:
+                self.message = (
+                    "새 후보를 확인하세요."
+                    if self.candidate
+                    else "번역안을 확인한 뒤 이름 변경을 적용하세요."
+                )
+            self.progress(done, total, final_label)
         finally:
             engine.CHAT_TRANSPORT.reset(token)
             self.progress(self.job["done"], self.job["total"], "모델 메모리 확인")
@@ -254,7 +270,11 @@ class GuiService:
                     running._client.close()
             except Exception:
                 self.unload_state = "모델 해제 상태 확인 실패"
-            self.progress(self.job["done"], self.job["total"], "번역 완료")
+            self.progress(
+                self.job["done"],
+                self.job["total"],
+                "번역 중단" if self.cancel_event.is_set() else final_label,
+            )
 
     def _suggest_output(self):
         work = self._require_work()

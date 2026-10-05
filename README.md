@@ -1,6 +1,6 @@
 # Kotonoha Renamer
 
-**v1.0.0 · Windows용 포터블 번역 GUI**
+**v1.0.1 · Windows용 포터블 번역 GUI**
 
 일본어 파일·폴더 이름을 로컬 AI로 한국어로 번역합니다. EXE를 실행하면 기본 브라우저에 작업 화면이 열립니다. Python 설치나 Kotonoha 설치 마법사는 필요 없습니다.
 
@@ -28,6 +28,7 @@
 
 ## 번역과 모델
 
+- 제목은 최대 5개씩 나눠 번역합니다. 응답이 잘리면 완성된 항목을 보존하고 미완료 항목만 재시도합니다.
 - 번역 셀을 직접 수정하거나 체크한 제목만 다시 번역할 수 있습니다.
 - **표현 바꾸기**는 현재 번역에서 일치하는 텍스트만 치환합니다. 선택한 제목이 없으면 전체에서 찾으며 AI를 호출하지 않습니다.
 - **사용자 사전**에서 모든 폴더에 참고할 원문 표현과 원하는 한국어를 저장합니다.
@@ -59,7 +60,7 @@ python kotonoha_gui.py
 
 개발 실행도 프로젝트의 `data`를 사용합니다. `KOTONOHA_DATA_DIR`로 테스트 데이터를 분리할 수 있습니다.
 
-현재 버전은 `1.0.0`입니다. 저장소 이름은 **kotonoha-renamer**이며, 배포 파일은 [GitHub Releases](https://github.com/lshlabs/kotonoha-renamer/releases)에서 제공합니다. 검증 범위는 [검증 보고서](docs/validation.md), 상세 사용법은 [사용 안내](docs/usage.md)를 참고하세요.
+현재 버전은 `1.0.1`입니다. 저장소 이름은 **kotonoha-renamer**이며, 배포 파일은 [GitHub Releases](https://github.com/lshlabs/kotonoha-renamer/releases)에서 제공합니다. 검증 범위는 [검증 보고서](docs/validation.md), 상세 사용법은 [사용 안내](docs/usage.md)를 참고하세요.
 
 ## 저장소 구성
 

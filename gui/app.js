@@ -395,7 +395,7 @@ function render() {
   $("phase").textContent = s.job.label;
   $("dot").className =
     "status-dot " +
-    (s.busy ? "running" : s.job.status === "failed" ? "failed" : "");
+    (s.busy ? "running" : ["failed", "partial"].includes(s.job.status) ? "failed" : "");
   $("progress-count").textContent = s.job.total
     ? `${s.job.done} / ${s.job.total}${s.job.unit === "percent" ? "%" : "개"}`
     : "";
