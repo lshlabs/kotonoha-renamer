@@ -1,0 +1,1369 @@
+{
+  "version": "2.0",
+  "fixed_terms": {
+    "耳\"奥\"舐め": {
+      "preferred": "귓\"속\"핥기",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "両耳舐め": {
+      "preferred": "양쪽 귀 핥기",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "両耳圧迫舐め": {
+      "preferred": "양쪽 귀 압박 핥기",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "圧迫耳舐め": {
+      "preferred": "압박 귀핥기",
+      "confidence": "medium",
+      "preferred_status": "observed_translation"
+    },
+    "耳圧舐め": {
+      "preferred": "귀 압박 핥기",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "耳元囁き": {
+      "preferred": "귓가 속삭임",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ささやき": {
+      "preferred": "속삭임",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "無声囁き": {
+      "preferred": "무성 속삭임",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "無声音": {
+      "preferred": "무성음",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "鼻息": {
+      "preferred": "콧바람",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "息": {
+      "preferred": "숨",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "低音": {
+      "preferred": "저음",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "低音ボイス": {
+      "preferred": "저음 보이스",
+      "confidence": "medium",
+      "preferred_status": "observed_translation"
+    },
+    "エロ声": {
+      "preferred": "야한 목소리",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "密着": {
+      "preferred": "밀착",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "超密着": {
+      "preferred": "초밀착",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "最密着": {
+      "preferred": "최밀착",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ぎゅ～っと": {
+      "preferred": "꼬~옥",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "安らぎ": {
+      "preferred": "안락한",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "極楽": {
+      "preferred": "극락",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "あまトロ": {
+      "preferred": "달콤끈적",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "甘とろ": {
+      "preferred": "달콤 황홀한",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "甘ったるい": {
+      "preferred": "달콤달콤",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "いちゃらぶ": {
+      "preferred": "알콩달콩",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "いちゃいちゃ": {
+      "preferred": "꽁냥꽁냥",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ラブラブ": {
+      "preferred": "러브러브",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "全肯定": {
+      "preferred": "전긍정",
+      "confidence": "medium",
+      "preferred_status": "observed_translation"
+    },
+    "愛が重すぎる": {
+      "preferred": "사랑이 너무 무거운",
+      "confidence": "medium",
+      "preferred_status": "observed_translation"
+    },
+    "優しい": {
+      "preferred": "상냥한",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "色っぽい": {
+      "preferred": "요염한",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "いじわる": {
+      "preferred": "심술궂은",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "生意気": {
+      "preferred": "건방진",
+      "confidence": "medium",
+      "preferred_status": "observed_translation"
+    },
+    "無表情": {
+      "preferred": "무표정",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "淡々": {
+      "preferred": "담담",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "お姉ちゃん": {
+      "preferred": "누나",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "おねぇちゃん": {
+      "preferred": "누님",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "お姉様": {
+      "preferred": "누님",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "妹": {
+      "preferred": "여동생",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "義理の姉妹": {
+      "preferred": "의붓자매",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "先輩": {
+      "preferred": "선배",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "後輩": {
+      "preferred": "후배",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "カノジョ": {
+      "preferred": "여친",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "恋人": {
+      "preferred": "연인",
+      "confidence": "medium",
+      "preferred_status": "observed_translation"
+    },
+    "彼氏": {
+      "preferred": "남친",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "カレシ": {
+      "preferred": "남친",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "幼馴染": {
+      "preferred": "소꿉친구",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "嫁": {
+      "preferred": "아내",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ワイフ": {
+      "preferred": "와이프",
+      "confidence": "medium",
+      "preferred_status": "observed_translation"
+    },
+    "ご主人様": {
+      "preferred": "주인님",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ご主人さま": {
+      "preferred": "주인님",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "旦那様": {
+      "preferred": "서방님",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "坊ちゃま": {
+      "preferred": "도련님",
+      "confidence": "medium",
+      "preferred_status": "observed_translation"
+    },
+    "お兄様": {
+      "preferred": "오라버니",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "お兄": {
+      "preferred": "오빠",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "メイド": {
+      "preferred": "메이드",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "サキュバス": {
+      "preferred": "서큐버스",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "キス": {
+      "preferred": "키스",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "べろちゅ〜": {
+      "preferred": "딥키스",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ベロキス": {
+      "preferred": "혀키스",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "マッサージ": {
+      "preferred": "마사지",
+      "confidence": "medium",
+      "preferred_status": "observed_translation"
+    },
+    "乳首マッサージ": {
+      "preferred": "젖꼭지 마사지",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "性感マッサージ": {
+      "preferred": "성감 마사지",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "リフレ": {
+      "preferred": "마사지",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ご奉仕": {
+      "preferred": "봉사",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "おねだり": {
+      "preferred": "조르기",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "求愛": {
+      "preferred": "구애",
+      "confidence": "medium",
+      "preferred_status": "observed_translation"
+    },
+    "カウントダウン": {
+      "preferred": "카운트다운",
+      "confidence": "medium",
+      "preferred_status": "observed_translation"
+    },
+    "ね～っとり": {
+      "preferred": "진득하게",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "トロトロ": {
+      "preferred": "녹아내리는",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ぬるぬる": {
+      "preferred": "미끌미끌",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ふわふわ": {
+      "preferred": "폭신폭신",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ゴシゴシ": {
+      "preferred": "벅벅",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "クチュ": {
+      "preferred": "질척",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ビクビクッ": {
+      "preferred": "펄떡펄떡",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "びゅるびゅる": {
+      "preferred": "뷰릇뷰릇",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ペロペロ": {
+      "preferred": "할짝할짝",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ゾクゾク": {
+      "preferred": "오싹오싹",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "濃密": {
+      "preferred": "농후",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "極深": {
+      "preferred": "깊숙한",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "徹底": {
+      "preferred": "철저하게",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "超スロー": {
+      "preferred": "아주 느린",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "超特化": {
+      "preferred": "초특화",
+      "confidence": "medium",
+      "preferred_status": "observed_translation"
+    },
+    "いっぱい": {
+      "preferred": "잔뜩",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "全編": {
+      "preferred": "전편",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "全編あまあま": {
+      "preferred": "전편 알콩달콩",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ドドドS": {
+      "preferred": "극극극 S",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "よわよわ": {
+      "preferred": "허접",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "雑魚": {
+      "preferred": "허접",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "超絶": {
+      "preferred": "초절",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "特盛": {
+      "preferred": "곱배기",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "永遠": {
+      "preferred": "영원",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "絶対": {
+      "preferred": "반드시",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "フォーリー": {
+      "preferred": "Foley",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ハイレゾ": {
+      "preferred": "고음질",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "抱き枕": {
+      "preferred": "다키마쿠라",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "ルート分岐有り": {
+      "preferred": "루트 분기 있음",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "おまけトラック": {
+      "preferred": "보너스 트랙",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "声": {
+      "preferred": "목소리",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "柔トロ舐め": {
+      "preferred": "부드럽고 녹진한 핥기",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "激圧舐め": {
+      "preferred": "묵직한 핥기",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "甘擦": {
+      "preferred": "살살 문지르는",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "甘やかしべろちゅー": {
+      "preferred": "응석받으며 딥키스",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "シャンプー": {
+      "preferred": "샴푸",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ポキポキ": {
+      "preferred": "우드득우드득",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "按摩": {
+      "preferred": "안마",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "足湯": {
+      "preferred": "족욕",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "整体": {
+      "preferred": "정체",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "温泉": {
+      "preferred": "온천",
+      "confidence": "medium",
+      "preferred_status": "observed_translation"
+    },
+    "貸し切り温泉": {
+      "preferred": "전세 온천",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "耳ふー": {
+      "preferred": "귓바람",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "ラブラブ/あまあま": {
+      "preferred": "러브러브/달콤달콤",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "先輩/後輩": {
+      "preferred": "선배/후배",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "姉妹": {
+      "preferred": "자매",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "実姉": {
+      "preferred": "친누나/친언니",
+      "confidence": "medium",
+      "preferred_status": "observed_translation"
+    },
+    "恋人同士": {
+      "preferred": "연인끼리",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "バイノーラル/ダミヘ": {
+      "preferred": "바이노럴/더미헤드폰",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "ASMR": {
+      "preferred": "ASMR",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "ぐっぽり耳舐め": {
+      "preferred": "깊숙하게 귀 핥기",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "実況ささやき": {
+      "preferred": "속삭이며 상황 설명",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "お耳舐め": {
+      "preferred": "귀 핥기",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "しっとり": {
+      "preferred": "끈적한",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "安眠誘導": {
+      "preferred": "숙면 유도",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "安眠移行": {
+      "preferred": "숙면 이행",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "おねんね": {
+      "preferred": "코코넨네",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "寝落ち": {
+      "preferred": "잠들기",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "甘やかして": {
+      "preferred": "응석 받아주면서",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "お目覚めキス": {
+      "preferred": "모닝키스",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "淫語囁き": {
+      "preferred": "야한 말 속삭임",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "ピロートーク": {
+      "preferred": "필로 토크",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "相反囁き": {
+      "preferred": "상반된 속삭임",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "両耳からの吐息": {
+      "preferred": "양쪽 귀에서 입김",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "にぎにぎ": {
+      "preferred": "쪼물쪼물",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "呼吸管理": {
+      "preferred": "호흡 관리",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "カリカリ": {
+      "preferred": "긁적긁적",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "シコシコ": {
+      "preferred": "문지르기",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "寝息": {
+      "preferred": "잠든 숨소리",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "右耳": {
+      "preferred": "오른쪽 귀",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "左耳": {
+      "preferred": "왼쪽 귀",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "綿棒": {
+      "preferred": "면봉",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "パリパリ": {
+      "preferred": "바스락바스락",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "耳垢": {
+      "preferred": "귀지",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "耳ブラシ": {
+      "preferred": "귀 브러시",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "梵天": {
+      "preferred": "솜뭉치",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "指圧": {
+      "preferred": "지압",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "両耳同時": {
+      "preferred": "양쪽 귀 동시",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "音圧爆発": {
+      "preferred": "음압 폭발",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "新技": {
+      "preferred": "신기술",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    },
+    "必殺": {
+      "preferred": "필살",
+      "confidence": "low",
+      "preferred_status": "observed_translation"
+    }
+  },
+  "contextual_terms": {
+    "耳舐め": {
+      "preferred": "귀핥기",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "귀 핥기"
+      ],
+      "contextual_translations": [
+        {
+          "translation": "귀 핥기",
+          "usage_note": "띄어 쓴 행위 명사·트랙 구문"
+        }
+      ]
+    },
+    "耳奥舐め": {
+      "preferred": "귓속 핥기",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "耳元": {
+      "preferred": "귓가",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "귓가에서",
+          "usage_note": "귓가의 위치 표현이며 귓속과 구분한다."
+        }
+      ]
+    },
+    "耳元密着": {
+      "preferred": "귓가 밀착",
+      "confidence": "low",
+      "preferred_status": "editor_recommendation",
+      "contextual_translations": [
+        {
+          "translation": "귓가밀착",
+          "usage_note": "띄어쓰기는 귓가 밀착을 권장하되 관찰 표기는 그대로 기록한다."
+        }
+      ]
+    },
+    "耳奥": {
+      "preferred": "귓속",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "귀 안쪽",
+          "usage_note": "耳奥舐め처럼 복합 표현의 일부로 확인되었다. 부위와 깊이의 표현이 달라진다."
+        }
+      ]
+    },
+    "囁き": {
+      "preferred": "속삭임",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "속닥속닥"
+      ],
+      "contextual_translations": [
+        {
+          "translation": "속닥속닥",
+          "usage_note": "카운트다운 등 반복적 구어 분위기"
+        }
+      ]
+    },
+    "囁かれ": {
+      "preferred": "속삭임을 들으며",
+      "confidence": "low",
+      "preferred_status": "editor_recommendation"
+    },
+    "密着淫語囁き": {
+      "preferred": "밀착 음어 속삭임",
+      "confidence": "high",
+      "preferred_status": "observed_translation"
+    },
+    "吐息": {
+      "preferred": "숨결",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "속삭임",
+          "usage_note": "일부 제목의 의미 이동; 기본값 금지"
+        }
+      ]
+    },
+    "艶吐息": {
+      "preferred": "농염한 숨결",
+      "confidence": "low",
+      "preferred_status": "editor_recommendation"
+    },
+    "喘ぎ": {
+      "preferred": "신음",
+      "confidence": "medium",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "헐떡임",
+          "usage_note": "호흡 강조는 헐떡임, 성적인 발성 강조는 신음으로 달라진다."
+        }
+      ]
+    },
+    "喘ぎ声": {
+      "preferred": "신음소리",
+      "confidence": "low",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "신음 소리",
+          "usage_note": "근거의 제목·트랙 문맥과 한국어 문법 형태를 확인한다."
+        }
+      ]
+    },
+    "声我慢": {
+      "preferred": "목소리 참기",
+      "confidence": "low",
+      "preferred_status": "editor_recommendation",
+      "contextual_translations": [
+        {
+          "translation": "목소리 참으면서",
+          "usage_note": "행동 구문으로 풀어 번역된 사례."
+        }
+      ]
+    },
+    "オホ声": {
+      "preferred": "오호고에",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "오호 목소리",
+          "usage_note": "음역·설명형 번역이 함께 나타난다. 일반 숨소리나 헐떡임으로 합치지 않는다."
+        }
+      ]
+    },
+    "甘オホ": {
+      "preferred": "달콤 오호",
+      "confidence": "low",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "달콤한 오호",
+          "usage_note": "근거의 제목·트랙 문맥과 한국어 문법 형태를 확인한다."
+        }
+      ]
+    },
+    "ゼロ距離": {
+      "preferred": "제로 거리",
+      "confidence": "low",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "영거리",
+          "usage_note": "한자어로 옮긴 밀착 제목"
+        }
+      ]
+    },
+    "添い寝": {
+      "preferred": "곁잠",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "곁 잠"
+      ],
+      "contextual_translations": [
+        {
+          "translation": "곁 잠",
+          "usage_note": "곁 잠(장르 태그)과 곁잠(제목)의 띄어쓰기 차이를 별도로 보존한다."
+        }
+      ]
+    },
+    "寝かしつけ": {
+      "preferred": "재워주기",
+      "confidence": "low",
+      "preferred_status": "editor_recommendation",
+      "contextual_translations": [
+        {
+          "translation": "잠 재워주기",
+          "usage_note": "행위 명사 또는 수식절에 따라 선택한다."
+        }
+      ]
+    },
+    "安眠": {
+      "preferred": "숙면",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "푹 자며",
+          "usage_note": "安眠しながら의 부사절"
+        }
+      ]
+    },
+    "癒し": {
+      "preferred": "힐링",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "치유"
+      ],
+      "contextual_translations": [
+        {
+          "translation": "치유",
+          "usage_note": "제목의 브랜드명/상호와 분위기 수식어는 구분한다."
+        }
+      ]
+    },
+    "癒して": {
+      "preferred": "힐링해 주다",
+      "confidence": "low",
+      "preferred_status": "editor_recommendation"
+    },
+    "甘やかし": {
+      "preferred": "응석 받아주기",
+      "confidence": "low",
+      "preferred_status": "editor_recommendation",
+      "common_translations": [
+        "응석받이"
+      ],
+      "contextual_translations": [
+        {
+          "translation": "응석받이",
+          "usage_note": "명사화된 실제 제목; 주체를 혼동할 수 있음"
+        }
+      ]
+    },
+    "甘々": {
+      "preferred": "달콤달콤",
+      "confidence": "low",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "알콩달콩",
+          "usage_note": "근거의 제목·트랙 문맥과 한국어 문법 형태를 확인한다."
+        }
+      ]
+    },
+    "あまあま": {
+      "preferred": "달콤달콤",
+      "confidence": "medium",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "알콩달콩",
+        "달콤한"
+      ],
+      "contextual_translations": [
+        {
+          "translation": "알콩달콩",
+          "usage_note": "연인의 관계·상호 교감"
+        }
+      ]
+    },
+    "イチャラブ": {
+      "preferred": "꽁냥러브",
+      "confidence": "medium",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "꽁냥 러브",
+          "usage_note": "근거의 제목·트랙 문맥과 한국어 문법 형태를 확인한다."
+        }
+      ]
+    },
+    "溺愛": {
+      "preferred": "지독한 사랑",
+      "confidence": "low",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "사랑"
+      ],
+      "contextual_translations": [
+        {
+          "translation": "사랑",
+          "usage_note": "의역 시 집착·과도한 애정의 강도를 놓치지 않는다."
+        }
+      ]
+    },
+    "優しく": {
+      "preferred": "다정하게",
+      "confidence": "low",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "부드럽게",
+          "usage_note": "근거의 제목·트랙 문맥과 한국어 문법 형태를 확인한다."
+        }
+      ]
+    },
+    "妖艶": {
+      "preferred": "요염",
+      "confidence": "medium",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "요염한",
+          "usage_note": "근거의 제목·트랙 문맥과 한국어 문법 형태를 확인한다."
+        }
+      ]
+    },
+    "意地悪": {
+      "preferred": "심술궂은",
+      "confidence": "medium",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "짓궂은",
+          "usage_note": "근거의 제목·트랙 문맥과 한국어 문법 형태를 확인한다."
+        }
+      ]
+    },
+    "ダウナー": {
+      "preferred": "다우너",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "다우너계"
+      ],
+      "contextual_translations": [
+        {
+          "translation": "다우너계",
+          "usage_note": "국내 제목의 차용어 사용이 반복됨. 저음·무성음과 동일하지 않다."
+        }
+      ]
+    },
+    "クール": {
+      "preferred": "쿨",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "쿨한",
+        "쿨계"
+      ],
+      "contextual_translations": [
+        {
+          "translation": "쿨한",
+          "usage_note": "캐릭터 성격은 쿨한, 차가운 태도는 냉담한 등으로 달라진다."
+        }
+      ]
+    },
+    "事務的": {
+      "preferred": "사무적",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "사무적인"
+      ],
+      "contextual_translations": [
+        {
+          "translation": "사무적인",
+          "usage_note": "근거의 제목·트랙 문맥과 한국어 문법 형태를 확인한다."
+        }
+      ]
+    },
+    "ボーイッシュ": {
+      "preferred": "보이시한",
+      "confidence": "low",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "보이쉬",
+          "usage_note": "관찰 표기 흔들림이 있으므로 권장 표기는 보이시한."
+        }
+      ]
+    },
+    "お姉さん": {
+      "preferred": "누나",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "누나/언니",
+        "누님"
+      ],
+      "contextual_translations": [
+        {
+          "translation": "누나/언니",
+          "usage_note": "원문 사이트 장르 태그의 병기; 제목에서는 관계 기준으로 하나를 선택"
+        }
+      ]
+    },
+    "姉": {
+      "preferred": "누나",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "언니",
+          "usage_note": "여성 간 자매 관계 기준"
+        }
+      ]
+    },
+    "義妹": {
+      "preferred": "의붓여동생",
+      "confidence": "low",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "의여동생",
+          "usage_note": "원문 사이트 공식 장르 태그의 표기"
+        }
+      ]
+    },
+    "彼女": {
+      "preferred": "여자친구",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "여친"
+      ]
+    },
+    "ママ": {
+      "preferred": "마마",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "엄마"
+      ],
+      "contextual_translations": [
+        {
+          "translation": "엄마",
+          "usage_note": "호칭 음역을 남기는 번역과 자연화한 번역이 공존한다."
+        }
+      ]
+    },
+    "べろちゅー": {
+      "preferred": "딥키스",
+      "confidence": "medium",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "딥 키스",
+          "usage_note": "혀가 얽히는 키스를 뜻하는 구어 표현. 그냥 키스로 축약하지 않는다."
+        }
+      ]
+    },
+    "ベロチュー": {
+      "preferred": "딥키스",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "딥 키스",
+          "usage_note": "근거의 제목·트랙 문맥과 한국어 문법 형태를 확인한다."
+        }
+      ]
+    },
+    "キス特化": {
+      "preferred": "키스 특화",
+      "confidence": "medium",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "키스특화",
+          "usage_note": "근거의 제목·트랙 문맥과 한국어 문법 형태를 확인한다."
+        }
+      ]
+    },
+    "ねっとり": {
+      "preferred": "끈적한",
+      "confidence": "low",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "끈적하고",
+          "usage_note": "감각·동작 문맥의 차이. 늘어나는 음을 단순 강도로 바꾸지 않는다."
+        }
+      ]
+    },
+    "とろける": {
+      "preferred": "녹아버릴",
+      "confidence": "low",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "황홀해지는",
+          "usage_note": "脳がとろける라는 같은 뇌 비유에서도 직유 보존과 감정 의역이 갈린다."
+        }
+      ]
+    },
+    "ぐっぽり": {
+      "preferred": "진득하게",
+      "confidence": "low",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "끈적이는",
+          "usage_note": "양쪽 귀 압박 핥기 제목"
+        }
+      ]
+    },
+    "むちむち": {
+      "preferred": "포동포동",
+      "confidence": "medium",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "글래머",
+          "usage_note": "체형을 익숙한 외래어로 의역"
+        }
+      ]
+    },
+    "ムチムチ": {
+      "preferred": "육덕",
+      "confidence": "medium",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "포동포동",
+          "usage_note": "근거의 제목·트랙 문맥과 한국어 문법 형태를 확인한다."
+        }
+      ]
+    },
+    "だらだら": {
+      "preferred": "뒹굴뒹굴",
+      "confidence": "low",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "빈둥빈둥",
+          "usage_note": "근거의 제목·트랙 문맥과 한국어 문법 형태를 확인한다."
+        }
+      ]
+    },
+    "濃厚": {
+      "preferred": "농후한",
+      "confidence": "medium",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "농후"
+      ],
+      "contextual_translations": [
+        {
+          "translation": "농후",
+          "usage_note": "강도·감각의 복합 수식"
+        }
+      ]
+    },
+    "極上": {
+      "preferred": "극상",
+      "confidence": "low",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "고급",
+          "usage_note": "귀핥기 서비스의 품질"
+        }
+      ]
+    },
+    "たっぷり": {
+      "preferred": "잔뜩",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "가득",
+        "듬뿍"
+      ],
+      "contextual_translations": [
+        {
+          "translation": "가득",
+          "usage_note": "행위·양의 수식은 잔뜩, 구성·수록량은 가득/듬뿍으로 달라진다."
+        }
+      ]
+    },
+    "ドスケベ": {
+      "preferred": "변태",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "개변태",
+        "초변태"
+      ]
+    },
+    "バイノーラル": {
+      "preferred": "바이노럴",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "입체음향향계",
+          "usage_note": "입체음향향계는 실제 제목의 어색한 표기. 기본값으로 채택하지 않는다."
+        }
+      ]
+    },
+    "フォーリーサウンド": {
+      "preferred": "폴리 사운드",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "폴리사운드"
+      ],
+      "contextual_translations": [
+        {
+          "translation": "폴리사운드",
+          "usage_note": "근거의 제목·트랙 문맥과 한국어 문법 형태를 확인한다."
+        }
+      ]
+    },
+    "特典付き": {
+      "preferred": "특전",
+      "confidence": "medium",
+      "preferred_status": "observed_translation",
+      "common_translations": [
+        "특전 포함"
+      ],
+      "contextual_translations": [
+        {
+          "translation": "특전 포함",
+          "usage_note": "근거의 제목·트랙 문맥과 한국어 문법 형태를 확인한다."
+        }
+      ]
+    },
+    "耳かき": {
+      "preferred": "귀청소",
+      "confidence": "high",
+      "preferred_status": "observed_translation",
+      "contextual_translations": [
+        {
+          "translation": "귀 청소",
+          "usage_note": "원문 사이트 장르 ID를 대조한 공식 태그 표기. 제목의 자유 번역과 구분한다."
+        }
+      ]
+    }
+  }
+}

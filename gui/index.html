@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"
+    />
+    <title>Kotonoha Renamer</title>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <span class="logo">言</span><strong>Kotonoha</strong
+        ><span class="version" id="version">Renamer</span>
+      </div>
+      <nav>
+        <button id="theme-toggle" aria-pressed="true">라이트 모드</button>
+        <button id="models-open">모델·설정</button
+        ><button id="dictionary-open">사용자 사전</button
+        ><button id="records-open">작업 기록</button>
+        <button id="shutdown">프로그램 종료</button>
+      </nav>
+    </header>
+    <main>
+      <section class="source-card">
+        <div class="label-row">
+          <label for="path">작품 폴더</label
+          ><span class="hint">원본 폴더 이름은 유지합니다.</span>
+        </div>
+        <div class="path-row">
+          <input
+            id="path"
+            placeholder="폴더를 선택하거나 경로를 붙여 넣으세요"
+            spellcheck="false"
+          /><button id="scan">확인</button
+          ><button id="pick" class="primary">폴더 선택</button>
+        </div>
+        <div class="settings-row">
+          <div>모델 <strong id="current-model">미선택</strong></div>
+          <label for="strength"
+            >번역 강도 <output id="strength-value">1 / 10</output></label
+          ><input id="strength" type="range" min="1" max="10" value="1" /><span
+            class="hint"
+            >강도가 높아도 품질이 좋아지는 것은 아닙니다.</span
+          >
+        </div>
+      </section>
+      <section class="work-card">
+        <div class="toolbar">
+          <div>
+            <button id="translate" class="primary">번역 시작</button
+            ><button id="retry">선택 제목 재번역</button
+            ><button id="correction-open">표현 바꾸기</button
+            ><button id="restore">직전 번역안 복귀</button>
+          </div>
+          <input
+            id="search"
+            type="search"
+            placeholder="제목 검색"
+            aria-label="제목 검색"
+          />
+        </div>
+        <div class="table-caption">
+          <strong id="row-count">제목 0개</strong
+          ><span
+            >번역 셀을 눌러 수정하세요. 같은 제목의 항목은 함께 바뀝니다.</span
+          >
+        </div>
+        <div class="table-scroll">
+          <table id="titles">
+            <thead>
+              <tr>
+                <th class="select-col">
+                  <input
+                    id="select-all"
+                    type="checkbox"
+                    aria-label="모든 제목 선택"
+                  />
+                </th>
+                <th>원문 제목</th>
+                <th>번역 제목</th>
+                <th class="status-col">상태</th>
+                <th class="count-col">항목</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="5" class="empty">
+                  작품 폴더를 선택하면 제목 목록이 표시됩니다.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section class="progress-card" aria-live="polite">
+        <div>
+          <span class="status-dot" id="dot"></span
+          ><strong id="phase">대기</strong><span id="progress-count"></span
+          ><span id="elapsed"></span
+          ><button id="cancel" hidden>작업 중단</button>
+        </div>
+        <progress id="progress" max="100" value="0"></progress>
+        <div class="hint" id="memory"></div>
+        <p id="message">작품 폴더를 선택하세요.</p>
+      </section>
+      <section class="apply-card">
+        <div class="output">
+          <label for="output-name">결과 폴더 이름</label
+          ><input
+            id="output-name"
+            placeholder="번역된 작품 이름"
+            spellcheck="false"
+          />
+          <div class="hint" id="output-path">
+            원본 폴더 안에 새 폴더를 만듭니다.
+          </div>
+        </div>
+        <div>
+          <button id="open-output">결과 폴더 열기</button
+          ><button id="preview" class="primary">이름 변경 적용</button>
+        </div>
+      </section>
+    </main>
+    <dialog id="models-dialog">
+      <div class="dialog-heading">
+        <h2>모델·설정</h2>
+        <button class="close" data-close="models-dialog" aria-label="닫기">
+          ×
+        </button>
+      </div>
+      <div class="ollama-row">
+        <div>
+          <strong>Ollama</strong>
+          <p id="ollama-state" class="hint">상태 확인 중</p>
+        </div>
+        <div>
+          <button id="ollama-install">설치</button
+          ><button id="ollama-update">업데이트</button
+          ><button id="models-refresh">새로 확인</button>
+        </div>
+      </div>
+      <p id="models-error" class="error"></p>
+      <div class="model-scroll">
+        <table id="model-table">
+          <thead>
+            <tr>
+              <th>SuperGemma</th>
+              <th>다운로드 크기</th>
+              <th>권장 VRAM</th>
+              <th>설치</th>
+              <th>기본</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="hint">
+        다운로드 모델은 SuperGemma로 구성합니다. VRAM은 추정치입니다.
+      </p>
+    </dialog>
+    <dialog id="dictionary-dialog">
+      <div class="dialog-heading">
+        <h2>사용자 사전</h2>
+        <button class="close" data-close="dictionary-dialog" aria-label="닫기">
+          ×
+        </button>
+      </div>
+      <p class="hint">
+        원문 표현과 원하는 번역을 저장합니다. 다음 번역부터 모든 작품에서
+        참고합니다.
+      </p>
+      <div id="preferences"></div>
+      <div class="preference-entry">
+        <select id="pref-row" aria-label="원문 제목"></select
+        ><input
+          id="pref-source"
+          placeholder="원문에서 표현을 선택하세요"
+          readonly
+        /><input
+          id="pref-desired"
+          placeholder="원하는 한국어"
+          aria-label="원하는 한국어"
+        /><button id="pref-save">표현 저장</button>
+      </div>
+      <p class="hint">
+        아래 원문을 드래그하면 일본어 입력 없이 표현을 고를 수 있습니다.
+      </p>
+      <p id="pref-original" class="original-selection" tabindex="0"></p>
+    </dialog>
+    <dialog id="records-dialog">
+      <div class="dialog-heading">
+        <h2>작업 기록</h2>
+        <button class="close" data-close="records-dialog" aria-label="닫기">
+          ×
+        </button>
+      </div>
+      <div class="toolbar">
+        <span class="hint"
+          >중단된 작업은 재번역 없이 계속하거나 복구할 수 있습니다.</span
+        ><button id="pick-log">로그 불러오기</button>
+      </div>
+      <div id="records"></div>
+    </dialog>
+    <dialog id="correction-dialog">
+      <div class="dialog-heading">
+        <h2>표현 바꾸기</h2>
+        <button
+          class="close"
+          data-close="correction-dialog"
+          aria-label="수정 입력 유지하고 닫기"
+        >
+          ×
+        </button>
+      </div>
+      <p class="hint">
+        현재 번역에서 일치하는 표현만 바꿉니다. 제목을 선택하면 선택 범위에만,
+        선택하지 않으면 전체에 적용합니다. 여러 표현은 입력 순서대로 바꿉니다.
+      </p>
+      <div id="corrections"></div>
+      <button id="correction-add">표현 추가</button>
+      <div class="dialog-actions">
+        <button data-close="correction-dialog">입력 유지 · 닫기</button
+        ><button id="correction-run" class="primary">변경 내용 확인</button>
+      </div>
+    </dialog>
+    <dialog id="candidate-dialog">
+      <div class="dialog-heading"><h2>새 번역안 비교</h2></div>
+      <div class="comparison-scroll">
+        <table id="comparison">
+          <thead>
+            <tr>
+              <th>원문</th>
+              <th>현재 번역</th>
+              <th>새 후보</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="dialog-actions">
+        <button id="candidate-keep">현재안 유지</button
+        ><button id="candidate-adopt" class="primary">새 번역안 사용</button>
+      </div>
+    </dialog>
+    <dialog id="preview-dialog">
+      <div class="dialog-heading">
+        <h2>이름 변경 적용</h2>
+        <button
+          class="close"
+          data-close="preview-dialog"
+          aria-label="적용하지 않고 닫기"
+        >
+          ×
+        </button>
+      </div>
+      <p id="preview-summary"></p>
+      <div class="comparison-scroll">
+        <table id="changes">
+          <thead>
+            <tr>
+              <th>변경 전</th>
+              <th>변경·이동 후</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <p class="hint">
+        원본 폴더와 복구 로그는 유지합니다. 파일 내용은 바꾸지 않습니다.
+      </p>
+      <div class="dialog-actions">
+        <button data-close="preview-dialog">검토 계속</button
+        ><button id="apply" class="primary">확인한 이름으로 적용</button>
+      </div>
+    </dialog>
+    <div id="toast" role="alert" hidden></div>
+  </body>
+</html>

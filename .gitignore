@@ -1,0 +1,35 @@
+# Local Python environment
+.venv/
+venv/
+__pycache__/
+.ruff_cache/
+*.py[cod]
+
+# Runtime state and personal name choices
+translation-cache.json
+proper_name_cache.json
+rename-log*.json
+*-rename-log.json
+*.json.tmp
+dry-run*.txt
+
+# Local secrets and editor settings
+.env
+.env.*
+.vscode/
+.idea/
+
+# Generated binaries, build tools, and verification output
+build/
+dist/
+build-tools/
+verification-output/
+
+# Archived sources and local preferences
+/legacy/
+/archive/
+/data/
+translation_preferences.json
+Thumbs.db
+Desktop.ini
+.DS_Store

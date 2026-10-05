@@ -1,0 +1,1 @@
+"""Discoverable Kotonoha regression tests."""

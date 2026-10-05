@@ -1,0 +1,19 @@
+{
+  "repository": "mradermacher/SuperGemma-4-12b-abliterated-GGUF",
+  "checked_on": "2026-10-03",
+  "source": "https://huggingface.co/mradermacher/SuperGemma-4-12b-abliterated-GGUF",
+  "default": "IQ4_XS",
+  "models": [
+    {"quant": "Q2_K", "bytes": 4830159744, "vram_gb": 6},
+    {"quant": "Q3_K_S", "bytes": 5528241024, "vram_gb": 8},
+    {"quant": "Q3_K_M", "bytes": 6087099264, "vram_gb": 8},
+    {"quant": "Q3_K_L", "bytes": 6566331264, "vram_gb": 8},
+    {"quant": "IQ4_XS", "bytes": 6690562944, "vram_gb": 8},
+    {"quant": "Q4_K_S", "bytes": 7024059264, "vram_gb": 10},
+    {"quant": "Q4_K_M", "bytes": 7381394304, "vram_gb": 10},
+    {"quant": "Q5_K_S", "bytes": 8338383744, "vram_gb": 12},
+    {"quant": "Q5_K_M", "bytes": 8547279744, "vram_gb": 12},
+    {"quant": "Q6_K", "bytes": 9786033024, "vram_gb": 12},
+    {"quant": "Q8_0", "bytes": 12669657984, "vram_gb": 16}
+  ]
+}
