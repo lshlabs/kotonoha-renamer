@@ -27,7 +27,7 @@ def native_pick(kind):
     owner.attributes("-topmost", True)
     try:
         if kind == "folder":
-            return filedialog.askdirectory(parent=owner, title="작품 폴더 선택", mustexist=True)
+            return filedialog.askdirectory(parent=owner, title="대상 폴더 선택", mustexist=True)
         return filedialog.askopenfilename(
             parent=owner, title="복구 로그 선택", filetypes=[("복구 로그", "*.json")]
         )

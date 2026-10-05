@@ -40,7 +40,7 @@ FORMAT_FOLDER_NAMES = {
 CHAT_TRANSPORT = ContextVar("kotonoha_chat_transport", default=None)
 
 MAX_RETRIES = 3
-PROMPT_VERSION = "kotonoha-v2-session-1"
+PROMPT_VERSION = "kotonoha-title-translation-1"
 TRANSLATION_OPTIONS = {"temperature": 0, "num_ctx": 4096, "num_predict": 4096}
 
 # 프로그램이 생성하는 메타데이터 파일은 번역/rename 대상에서 제외한다.

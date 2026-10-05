@@ -108,7 +108,7 @@ class WorkSession:
             self.corrections = saved.get("corrections", [])
             self.records = saved.get("records", {})
             self.strength = saved.get("strength", 1)
-            self.report("이 작품에서 채택한 결과를 재사용합니다.")
+            self.report("이 폴더에서 채택한 결과를 재사용합니다.")
         pending = [source for source in self.sources if source not in self.translations]
         if pending:
             self.generate_initial(pending)

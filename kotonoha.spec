@@ -12,4 +12,4 @@ a = Analysis([str(root / 'kotonoha_gui.py')], pathex=[str(root)],
 pyz = PYZ(a.pure)
 gui = EXE(pyz, a.scripts, [], exclude_binaries=True, name='Kotonoha',
     debug=False, bootloader_ignore_signals=False, strip=False, upx=False, console=False, version=str(root / "resources/version-info.txt"))
-coll = COLLECT(gui, a.binaries, a.datas, strip=False, upx=False, name='kotonoha-renamer-gui')
+coll = COLLECT(gui, a.binaries, a.datas, strip=False, upx=False, name='kotonoha-renamer')

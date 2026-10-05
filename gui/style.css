@@ -52,6 +52,10 @@
 }
 body {
   margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 button,
 input,
@@ -103,13 +107,14 @@ input[type="checkbox"] {
   height: 16px;
 }
 header {
-  height: 68px;
+  height: 60px;
   padding: 0 28px;
   background: var(--surface);
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex: 0 0 60px;
 }
 header > div {
   display: flex;
@@ -135,10 +140,14 @@ nav {
 main {
   max-width: 1500px;
   margin: auto;
-  padding: 20px 26px;
+  padding: 16px 24px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  overflow: auto;
 }
 .source-card,
 .work-card,
@@ -147,9 +156,10 @@ main {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 9px;
+  padding: 12px 16px;
 }
 .source-card {
-  padding: 18px 20px;
+  padding: 13px 18px;
 }
 .label-row {
   display: flex;
@@ -176,7 +186,7 @@ main {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding-top: 14px;
+  padding-top: 10px;
   flex-wrap: wrap;
 }
 .settings-row > div {
@@ -202,7 +212,7 @@ input[type="range"] {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 15px 17px;
+  padding: 11px 15px;
   border-bottom: 1px solid var(--border);
 }
 .toolbar > div {
@@ -214,7 +224,7 @@ input[type="range"] {
   width: 170px;
 }
 .table-caption {
-  padding: 11px 18px;
+  padding: 8px 16px;
   display: flex;
   gap: 15px;
   font-size: 12px;
@@ -224,9 +234,10 @@ input[type="range"] {
   color: var(--strong);
 }
 .table-scroll {
-  height: calc(100vh - 425px);
-  min-height: 210px;
+  height: auto;
+  min-height: 100px;
   overflow: auto;
+  flex: 1;
 }
 table {
   border-collapse: collapse;
@@ -307,7 +318,7 @@ td textarea:focus {
   text-align: center;
 }
 .progress-card {
-  padding: 14px 18px;
+  padding: 11px 16px;
 }
 .progress-card > div:first-child {
   display: flex;
@@ -442,15 +453,6 @@ h2 {
   white-space: pre-wrap;
   font-size: 12px;
 }
-details {
-  border-top: 1px solid var(--border);
-  margin-top: 18px;
-  padding-top: 15px;
-}
-summary {
-  cursor: pointer;
-  font-weight: 600;
-}
 .preference-entry {
   display: flex;
   gap: 6px;
@@ -534,7 +536,32 @@ summary {
     opacity: 0.4;
   }
 }
+.source-card,
+.progress-card,
+.apply-card {
+  flex-shrink: 0;
+}
+.work-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 180px;
+}
+#preview-summary {
+  white-space: pre-wrap;
+}
 @media (max-width: 1000px) {
+  header {
+    height: auto;
+    min-height: 60px;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 14px;
+  }
+  nav {
+    flex-wrap: wrap;
+  }
   main {
     padding: 14px;
   }
@@ -559,59 +586,4 @@ summary {
   .hint {
     font-size: 11px;
   }
-}
-body {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-header {
-  height: 60px;
-  flex: 0 0 60px;
-}
-main {
-  flex: 1;
-  min-height: 0;
-  width: 100%;
-  overflow: auto;
-  padding: 16px 24px;
-  gap: 12px;
-}
-.source-card,
-.progress-card,
-.apply-card {
-  flex-shrink: 0;
-}
-.work-card {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  min-height: 180px;
-}
-.table-scroll {
-  height: auto;
-  min-height: 100px;
-  flex: 1;
-}
-.source-card {
-  padding: 13px 18px;
-}
-.settings-row {
-  padding-top: 10px;
-}
-.progress-card {
-  padding: 11px 16px;
-}
-.apply-card {
-  padding: 12px 16px;
-}
-.toolbar {
-  padding: 11px 15px;
-}
-.table-caption {
-  padding: 8px 16px;
-}
-#preview-summary {
-  white-space: pre-wrap;
 }

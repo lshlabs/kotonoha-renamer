@@ -1,4 +1,4 @@
-"""Validated work paths shared by GUI and CLI."""
+"""Validated paths for folder scanning and recovery."""
 
 import os
 import re
@@ -26,7 +26,7 @@ def validate_root(root, check_pending=True):
         Path(sys.executable).parent if getattr(sys, "frozen", False) else Path(__file__).parent
     )
     if not root.is_dir() or is_link(root):
-        raise ValueError(f"대상은 접근 가능한 실제 작품 폴더여야 합니다: {root}")
+        raise ValueError(f"대상은 접근 가능한 실제 대상 폴더여야 합니다: {root}")
     protected = [install.resolve(), storage.DATA_DIR.resolve()]
     for variable in ("WINDIR", "ProgramFiles", "ProgramFiles(x86)"):
         if os.environ.get(variable):
@@ -40,7 +40,7 @@ def validate_root(root, check_pending=True):
             "드라이브 루트·설치/시스템/사용자 데이터 폴더를 작업 대상으로 사용할 수 없습니다. 대상 폴더를 다시 선택하세요."
         )
     if not os.access(root, os.R_OK | os.W_OK) or not os.access(root.parent, os.W_OK):
-        raise PermissionError("작품 폴더와 그 부모 폴더의 읽기/쓰기 권한을 확인하세요.")
+        raise PermissionError("대상 폴더와 그 부모 폴더의 읽기/쓰기 권한을 확인하세요.")
     if check_pending:
         storage.check_existing(root)
 

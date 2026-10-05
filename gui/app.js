@@ -154,7 +154,7 @@ function renderRows() {
       tr,
       state.root
         ? "표시할 일본어 제목이 없습니다. 결과 폴더 이름을 정해 내용물을 정리할 수 있습니다."
-        : "작품 폴더를 선택하세요.",
+        : "대상 폴더를 선택하세요.",
     );
     td.colSpan = 5;
     td.className = "empty";
@@ -294,7 +294,7 @@ function updateOriginal() {
   );
   $("pref-original").textContent = row
     ? row.source
-    : "작품을 선택한 뒤 원문 표현을 고를 수 있습니다.";
+    : "폴더를 선택한 뒤 원문 표현을 고를 수 있습니다.";
   $("pref-source").value = "";
 }
 function renderRecords() {

@@ -13,7 +13,7 @@
   </head>
   <body>
     <header>
-      <div><span class="logo">言</span><strong>Kotonoha</strong></div>
+      <div><span class="logo">言</span><strong>Kotonoha Renamer</strong></div>
       <nav>
         <button id="theme-toggle" aria-pressed="true">라이트 모드</button>
         <button id="models-open">모델·설정</button
@@ -25,7 +25,7 @@
     <main>
       <section class="source-card">
         <div class="label-row">
-          <label for="path">작품 폴더</label
+          <label for="path">대상 폴더</label
           ><span class="hint">원본 폴더 이름은 유지합니다.</span>
         </div>
         <div class="path-row">
@@ -87,7 +87,7 @@
             <tbody>
               <tr>
                 <td colspan="5" class="empty">
-                  작품 폴더를 선택하면 제목 목록이 표시됩니다.
+                  대상 폴더를 선택하면 제목 목록이 표시됩니다.
                 </td>
               </tr>
             </tbody>
@@ -103,14 +103,14 @@
         </div>
         <progress id="progress" max="100" value="0"></progress>
         <div class="hint" id="memory"></div>
-        <p id="message">작품 폴더를 선택하세요.</p>
+        <p id="message">대상 폴더를 선택하세요.</p>
       </section>
       <section class="apply-card">
         <div class="output">
           <label for="output-name">결과 폴더 이름</label
           ><input
             id="output-name"
-            placeholder="번역된 작품 이름"
+            placeholder="번역된 폴더 이름"
             spellcheck="false"
           />
           <div class="hint" id="output-path">
@@ -169,7 +169,7 @@
         </button>
       </div>
       <p class="hint">
-        원문 표현과 원하는 번역을 저장합니다. 다음 번역부터 모든 작품에서
+        원문 표현과 원하는 번역을 저장합니다. 다음 번역부터 모든 폴더에서
         참고합니다.
       </p>
       <div id="preferences"></div>

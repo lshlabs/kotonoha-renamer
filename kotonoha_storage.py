@@ -359,7 +359,7 @@ def release_cwd(source):
 
 
 def checkpoint(stage, direction, index):
-    """Fault injection only enabled by tests, never by a production CLI flag."""
+    """Fault injection only enabled by tests, never exposed as a user option."""
     if os.environ.get("KOTONOHA_TEST_CRASH") == f"{direction}:{stage}:{index}":
         os._exit(99)
 

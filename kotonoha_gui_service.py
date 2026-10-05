@@ -94,7 +94,7 @@ class GuiService:
         self.preview_plan = None
         self.candidate = None
         self.output_name = ""
-        self.message = "작품 폴더를 선택하세요."
+        self.message = "대상 폴더를 선택하세요."
         self.job = {"status": "idle", "label": "대기", "done": 0, "total": 0, "unit": "titles"}
         self.model_state = {
             "available": False,
@@ -127,7 +127,7 @@ class GuiService:
 
     def _require_work(self):
         if not self.work:
-            raise ValueError("작품 폴더를 먼저 선택하세요.")
+            raise ValueError("대상 폴더를 먼저 선택하세요.")
         return self.work
 
     def _start(self, label, function, hold_lock=True):
@@ -795,7 +795,7 @@ class GuiService:
                 return {}
             if action == "open_output":
                 if not work:
-                    raise ValueError("선택한 작품이 없습니다.")
+                    raise ValueError("선택한 폴더이 없습니다.")
                 output = work.root / self.output_name
                 if output.parent != work.root or not output.is_dir():
                     raise ValueError("결과 폴더가 없습니다.")

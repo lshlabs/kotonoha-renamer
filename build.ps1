@@ -1,7 +1,7 @@
 param([string]$Python = 'python')
 $ErrorActionPreference = 'Stop'
 Push-Location $PSScriptRoot
-$taskDataPath = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot 'dist\kotonoha-renamer-gui\data'))
+$taskDataPath = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot 'dist\kotonoha-renamer\data'))
 $taskBackupPath = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot ('build\portable-data-' + [guid]::NewGuid().ToString('N'))))
 $taskWorkspacePrefix = [IO.Path]::GetFullPath($PSScriptRoot) + '\'
 if (-not $taskDataPath.StartsWith($taskWorkspacePrefix, [StringComparison]::OrdinalIgnoreCase) -or
@@ -13,7 +13,7 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Static checks failed.' }
     & $Python -m ruff format --check .
     if ($LASTEXITCODE -ne 0) { throw 'Formatting check failed.' }
-    $taskExePath = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot 'dist\kotonoha-renamer-gui\Kotonoha.exe'))
+    $taskExePath = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot 'dist\kotonoha-renamer\Kotonoha.exe'))
     if (Get-Process -Name Kotonoha -ErrorAction SilentlyContinue | Where-Object { $_.Path -eq $taskExePath }) {
         throw 'Close the portable GUI before rebuilding it.'
     }

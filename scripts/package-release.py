@@ -32,7 +32,7 @@ def sha256(path):
 def main():
     version = release_version()
     dist = ROOT / "dist"
-    bundle = dist / "kotonoha-renamer-gui"
+    bundle = dist / "kotonoha-renamer"
     if not (bundle / "Kotonoha.exe").is_file():
         raise FileNotFoundError(bundle / "Kotonoha.exe")
     result = subprocess.run(
@@ -52,23 +52,29 @@ def main():
     )
     if result.stdout.strip() != version:
         raise ValueError("Rebuild the executable before packaging")
-    if (bundle / "koto.exe").exists():
-        raise ValueError("CLI launcher must not be included in the GUI release")
-    archive = dist / f"kotonoha-renamer-gui-v{version}-windows-x64.zip"
+    if {p.name for p in bundle.glob("*.exe")} != {"Kotonoha.exe"}:
+        raise ValueError("The release must contain exactly one GUI launcher")
+    for asset in (ROOT / "gui").iterdir():
+        if (
+            asset.is_file()
+            and (bundle / "_internal/gui" / asset.name).read_bytes() != asset.read_bytes()
+        ):
+            raise ValueError(f"Bundled GUI asset is stale: {asset.name}")
+    archive = dist / f"kotonoha-renamer-v{version}-windows-x64.zip"
     with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED) as output:
         for path in sorted(bundle.rglob("*")):
             relative = path.relative_to(bundle)
             if path.is_file() and relative.parts[0] != "data":
-                output.write(path, Path("kotonoha-renamer-gui") / relative)
-        output.writestr("kotonoha-renamer-gui/data/", "")
+                output.write(path, Path("kotonoha-renamer") / relative)
+        output.writestr("kotonoha-renamer/data/", "")
         for name in (
             "README.md",
-            "docs/사용안내.md",
-            "docs/검증보고서.md",
-            "docs/배포.md",
+            "docs/usage.md",
+            "docs/validation.md",
+            "docs/release.md",
             "docs/images/gui.png",
         ):
-            output.write(ROOT / name, Path("kotonoha-renamer-gui") / name)
+            output.write(ROOT / name, Path("kotonoha-renamer") / name)
     with zipfile.ZipFile(archive) as output:
         if output.testzip() is not None:
             raise ValueError("Portable archive integrity check failed")
